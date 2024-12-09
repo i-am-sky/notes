@@ -1,0 +1,97 @@
+Context
+Call Stack
+Heap
+Global Execution Context
+Web APIs
+Callback Queue (Task Queue)
+Microtask Queue
+Event Loop
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+1. Call Stack
+
+    The Call Stack is used to store execution contexts of functions.
+    Each function call creates a new execution context, which is pushed onto the stack.
+    It contains the following:
+        Local variables (primitive values, like numbers or strings).
+        References to objects stored in the heap.
+    When a function finishes execution, its context is popped off the stack.
+
+2. Global Execution Context
+
+    JavaScript code operates within the Global Execution Context, which has two phases:
+        Memory Creation Phase:
+            Variables and functions are allocated memory and initialized with the value 'undefined'.
+            Hoisting allows access to variables before their initialization, preventing errors.
+        Code Execution Phase:
+            Variable values are assigned, and the code is executed.
+            Invoking a function creates a new execution context and a lexical environment, with local memory and access to the parent's lexical environment.
+            Once execution finishes, the global execution context is removed.
+
+3. JavaScript Web APIs
+
+    Web browsers provide APIs like setTimeout(), setInterval(), clearTimeout(), and clearInterval().
+    These APIs enable execution of tasks that cannot run on the main thread.
+
+4. Callback Queue (Task Queue/Macro Task Queue)
+
+    When a timer set by Web APIs is completed, the callback functions are not immediately added to the call stack.
+    Instead, they are placed in the Callback Queue, maintaining the correct execution sequence.
+
+5. Microtask Queue
+
+    The Microtask Queue holds callback functions from Promises and the Mutation Observer API.
+    It has higher priority than the Callback Queue and is executed first.
+
+6. Event Loop
+
+    The Event Loop continuously monitors the Call Stack and the Callback/Microtask Queues.
+    When the call stack is empty, and there are functions in the queues, the event loop places them in the call stack for execution.
+    This mechanism effectively manages asynchronous callbacks.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+in JavaScript, memory is allocated in specific areas for different types of data during program execution. Here's how memory is structured and where data gets stored:
+
+    Call Stack:
+        The Call Stack is used to store execution contexts of functions.
+        Each function call creates a new execution context, which is pushed onto the stack.
+        It contains the following:
+            Local variables (primitive values, like numbers or strings).
+            References to objects stored in the heap.
+        When a function finishes execution, its context is popped off the stack.
+
+    Heap:
+        The Heap is where objects and reference types (like arrays, functions, and objects) are stored.
+        Unlike the call stack, the heap is a large, unstructured memory pool.
+        Objects in the heap are dynamically allocated and can be accessed as long as there is a reference to them.
+        Memory in the heap is managed by the JavaScript Garbage Collector, which automatically frees up memory that is no longer referenced.
+
+    Global Memory:
+        Variables declared in the global scope (outside any function) are stored in global memory.
+        These remain accessible throughout the program's lifecycle unless explicitly removed.
+
+Example: Call Stack vs Heap
+
+function greet() {
+    const name = "Sky"; // Stored in the Call Stack
+    const details = { age: 25 }; // Object stored in the Heap, reference stored in the Call Stack
+    console.log(name, details);
+}
+
+greet();
+
+    "Sky" (a primitive value) is stored in the Call Stack.
+    { age: 25 } (an object) is stored in the Heap, while its reference is stored in the Call Stack.
+
+Important Points:
+
+    Stack is fast and used for managing execution contexts and storing primitive data.
+    Heap is slower but used for storing large, dynamically allocated data structures.
+    Garbage Collection ensures memory in the heap is freed when it's no longer needed, helping to prevent memory leaks.
+
+    //////////////////
+
+    this: simply grabs the reference of an object and puts it into a context
