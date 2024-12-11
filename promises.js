@@ -112,3 +112,27 @@ const promise3 = new Promise((resolve, reject) => {
 
 // Promise.allSettled([promise1, promise2, promise3])
 //     .then(results => console.log("All promises settled:", results)); 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
+// fetch('https://api.example.com/data')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error));
+
+/////     /////     /////     //////     ///////      ///////     //////    //////   
+// With async/await
+// async function fetchData() {
+//     try {
+//         let response = await fetch('https://api.example.com/data');
+//         let data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// fetchData();
