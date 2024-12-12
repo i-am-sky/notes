@@ -95,3 +95,14 @@ Important Points:
     //////////////////
 
     this: simply grabs the reference of an object and puts it into a context
+
+
+/////////////////////////////////////////////////////////////////////
+guess the output
+
+
+console.log("start");
+
+setTimeout(() => console.log("inside timer"), 1000);
+
+console.log("end");
