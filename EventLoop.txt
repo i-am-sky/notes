@@ -106,3 +106,12 @@ console.log("start");
 setTimeout(() => console.log("inside timer"), 1000);
 
 console.log("end");
+
+
+
+
+JavaScript is ...
+
+
+
+
